@@ -1,4 +1,6 @@
 const model = require('../models/model')
+const bcrypt = require('bcrypt');
+
 
 const create_Categories = async(req,res)=>{
     create = new model.categories({
@@ -59,8 +61,30 @@ const get_Labels = async (req,res)=>{
         let data = result.map(v => Object.assign({}, { _id: v._id, name: v.name, type: v.type, amount: v.amount, color: v.categories_info['color']}));
        return res.json(data);
     }).catch(error => {
-        res.status(400).json("Looup Collection Error");
+        res.status(400).json(`Looup Collection Error ${error}`);
     })
+}
+
+const create_User = async (req,res)=>{
+    try {
+        //generate new password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    
+        //create new user
+        const newUser = new model.users({
+          username: req.body.username,
+          email: req.body.email,
+          password: hashedPassword,
+        });  
+    
+        //save user and respond
+        const user = await newUser.save();
+        res.status(200).json(user._id);
+      } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
 }
 
 module.exports = {
@@ -69,5 +93,6 @@ module.exports = {
     create_Transaction,
     get_Transaction,
     delete_Transaction,
-    get_Labels
+    get_Labels,
+    create_User
 }
