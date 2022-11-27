@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { useForm } from 'react-hook-form';
 import List from './List' 
 import {default as api} from '../store/apiSlice'
@@ -6,11 +6,16 @@ import {default as api} from '../store/apiSlice'
 const Form = () => {
     const {register, handleSubmit, resetField} = useForm();
     const [addTransaction] = api.useAddTransactionMutation();
+    const myStorage = window.localStorage;
+    const [currentUser, setCurrentUsername] = useState(
+      myStorage.getItem("user")
+
+    );
 
     const onSubmit = async (data)=>{
-        console.log(data);
-        if(!data)return {}
-        await  addTransaction(data).unwrap()
+        console.log({...data,username:currentUser});
+        if(!{...data,username:currentUser})return {}
+        await  addTransaction({...data,username:currentUser}).unwrap()
         resetField('name');
         resetField('amount')
     }

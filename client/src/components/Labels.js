@@ -3,15 +3,19 @@ import {default as api} from '../store/apiSlice'
 import { getLabels } from '../helper/helper'
 
 const Labels = () => {
+    const myStorage = window.localStorage;
     const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
     // console.log(data,isSuccess);
     
  let Transactions;
-
-    if(isFetching){
-        Transactions = <div>Fetching</div>;
+ if(isFetching){
+     Transactions = <div>Fetching</div>;
     }else if(isSuccess){
-        Transactions = getLabels(data,'type').map((value,i)=><LabelComponent key={i} data={value}/> )
+        console.log(myStorage.getItem('user'));
+        const userData = data?.filter(val=>val.username == myStorage.getItem('user'))
+        console.log(userData);
+        // console.log(data);
+        Transactions = getLabels(userData,'type').map((value,i)=><LabelComponent key={i} data={value}/> )
         
     }else if(isError){
         Transactions = <div>Error</div>

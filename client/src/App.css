@@ -28,7 +28,7 @@
   background-color: var(--color-purple);
 }
 
-.chart .title {
+.chart .exp-title {
   position: absolute;
   left: 0;
   right: 0;

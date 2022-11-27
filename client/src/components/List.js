@@ -4,6 +4,7 @@ import {default as api} from '../store/apiSlice'
 
  
 const List = () => {
+    const myStorage = window.localStorage;
     const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
     const [deleteTransaction] = api.useDeleteTransactionMutation()
 
@@ -17,7 +18,9 @@ const List = () => {
     if(isFetching){
         Transactions = <div>Fetching</div>;
     }else if(isSuccess){
-        Transactions = data.map((value,i)=><Transaction key={i} handler={handlerClick} category={value}/> )
+        const userData = data?.filter(val=>val.username == myStorage.getItem('user'))
+        console.log(userData);
+        Transactions = userData.map((value,i)=><Transaction key={i} handler={handlerClick} category={value}/> )
     }else if(isError){
         Transactions = <div>Error</div>
     }

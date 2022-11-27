@@ -23,7 +23,9 @@ const create_Transaction = async(req,res)=>{
     create =await new model.transaction({
         type:req.body.type,
         name:req.body.name,
+        username:req.body.username,
         amount:req.body.amount,
+
         date:new Date(),
     })
  await   create.save(err =>{
@@ -58,7 +60,7 @@ const get_Labels = async (req,res)=>{
             $unwind:{path:"$categories_info"} 
         }
     ]).then(result => {
-        let data = result.map(v => Object.assign({}, { _id: v._id, name: v.name, type: v.type, amount: v.amount, color: v.categories_info['color']}));
+        let data = result.map(v => Object.assign({}, { _id: v._id,username:v.username, name: v.name, type: v.type, amount: v.amount, color: v.categories_info['color']}));
        return res.json(data);
     }).catch(error => {
         res.status(400).json(`Looup Collection Error ${error}`);
@@ -86,6 +88,26 @@ const create_User = async (req,res)=>{
         res.status(500).json(err);
       }
 }
+const login =async (req,res)=>{
+ try {
+    
+    const user = await model.users.findOne({username:req.body.username});
+    !user && res.status(400).json('Wrong username or password')
+    
+    const validPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+    )
+    !validPassword && res.status(400).json('Wrong username or password')
+
+    res.status(200).json({_id:user._id,username:user.username})
+
+  } catch (error) {
+    res.status(500).json(error)
+    
+  }
+}
+
 
 module.exports = {
     create_Categories,
@@ -94,5 +116,6 @@ module.exports = {
     get_Transaction,
     delete_Transaction,
     get_Labels,
-    create_User
+    create_User,
+    login
 }

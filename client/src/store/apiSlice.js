@@ -21,13 +21,20 @@ export const  apiSlice = createApi({
         }),
         invalidatesTags:['transaction']   
     }),
-    //     addUser:builder.mutation({query:(newUser)=>({
-    //         url:'/api/register',
-    //         method:'POST',
-    //         body:newUser
-    //     }),
-    //     invalidatesTags:['register']   
-    // })
+        addUser:builder.mutation({query:(newUser)=>({
+            url:'/api/register',
+            method:'POST',
+            body:newUser
+        }),
+        invalidatesTags:['register']   
+    }),
+    confirmUser:builder.mutation({query:(user)=>({
+        url:'/api/login',
+        method:'POST',
+        body:user
+    }),
+    invalidatesTags:['login']   
+})
 
     })
 

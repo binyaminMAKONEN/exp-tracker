@@ -17,4 +17,7 @@ routes.route('/api/labels')
 routes.route('/api/register')
     .post(controller.create_User)
 
+routes.route('/api/login')
+    .post(controller.login)
+
 module.exports = routes;

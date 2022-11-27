@@ -12,6 +12,13 @@ const transactionModel = new mongoose.Schema(
         type:{type:String,default:"Anonymous"},
         name:{type:String,default:"Investment"},
         amount:{type:Number},
+        username:{
+            type:String,
+            required:true,
+            min:3,
+            max:20,
+            unique:true
+        },
         date:{type:String,default:Date.now},
         
     }
@@ -19,21 +26,21 @@ const transactionModel = new mongoose.Schema(
 const userModel = new mongoose.Schema({
     username:{
         type:String,
-        require:true,
+        required:true,
         min:3,
         max:20,
         unique:true
     },
     email:{
         type:String,
-        require:true,
+        required:true,
         max:50,
         unique:true
     },
     
     password:{
         type:String,
-        require:true,
+        required:true,
         min:6,
     },
     

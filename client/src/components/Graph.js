@@ -8,25 +8,29 @@ Chart.register(ArcElement);
 
 
 const Graph = () => {
+  const myStorage = window.localStorage;
   const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
   let graphData;
+  const userData = data?.filter(val=>val.username == myStorage.getItem('user'))
 
   if(isFetching){
       graphData = <div>Fetching</div>;
   }else if(isSuccess){
+    console.log(data);
+    console.log(userData);
     chartData(data)
-      graphData =  <Doughnut {...chartData(data)} />
+      graphData =  <Doughnut {...chartData(userData)} />
       
   }else if(isError){
       graphData = <div>Error</div>
   }
   return (
-    <div className="flex justify-content max-w-xs mx-auto">
+    <div className="flex justify-content max-w-xs mx-auto sm:mt-24 md:mt-0" >
       <div className="item">
         <div className="chart relative">
          {graphData}
-          <h3 className='mb-4 font-bold title'>Total
-                    <span className='block text-3xl text-emerald-400'>${getTotal(data) ?? 0}</span>
+          <h3 className='mb-4 font-bold exp-title'>Total
+                    <span className='block text-3xl text-emerald-400'>${getTotal(userData) ?? 0}</span>
                 </h3>
         </div>
         <div className="flex flex-col py-10 gap-4">
