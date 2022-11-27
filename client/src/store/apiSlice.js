@@ -1,7 +1,7 @@
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseUrl ='http://localhost:8080'
+const baseUrl ='https://shy-cyan-caiman-wig.cyclic.app/'
 export const  apiSlice = createApi({
     baseQuery:fetchBaseQuery({baseUrl:baseUrl}),
     endpoints:(builder)=>({

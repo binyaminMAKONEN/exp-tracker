@@ -7,10 +7,9 @@ const Form = () => {
     const {register, handleSubmit, resetField} = useForm();
     const [addTransaction] = api.useAddTransactionMutation();
     const myStorage = window.localStorage;
-    const [currentUser, setCurrentUsername] = useState(
-      myStorage.getItem("user")
+    const currentUser=  myStorage.getItem("user")
 
-    );
+    
 
     const onSubmit = async (data)=>{
         console.log({...data,username:currentUser});
