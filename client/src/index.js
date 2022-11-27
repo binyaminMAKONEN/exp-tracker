@@ -12,7 +12,7 @@ root.render(
   <Provider store={store}>
     <Routes>
       <Route path='/' element={<LandingPage/>}/>
-      <Route path='/exTracker' element={<App />}/>
+      <Route path='/exTracker/:username' element={<App />}/>
     </Routes>
   </Provider>
   </Router>

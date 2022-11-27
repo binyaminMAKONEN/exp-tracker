@@ -20,9 +20,9 @@ export const getLabels = (transaction)=>{
     let percent = _(amountSum)
     .map(objs =>_.assign(objs,{percent:(100*objs.total)/sumTotal})).value()
 
-    console.log(amountSum);
-    console.log(sumTotal);
-    console.log(percent);
+    // console.log(amountSum);
+    // console.log(sumTotal);
+    // console.log(percent);
 return percent
 
 }
@@ -30,10 +30,10 @@ return percent
 export const chartData = (transaction,custom)=>{
     
     let dataValue = getSum(transaction)
-console.log(dataValue);
+// console.log(dataValue);
     let bg = _.map(transaction,obg => obg.color)
     bg = _.uniq(bg)
-    console.log(bg);
+    // console.log(bg);
     
 const config = {
     data: {

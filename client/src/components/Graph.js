@@ -11,13 +11,13 @@ const Graph = () => {
   const myStorage = window.localStorage;
   const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
   let graphData;
-  const userData = data?.filter(val=>val.username == myStorage.getItem('user'))
+  const userData = data?.filter(val=>val.username === myStorage.getItem('user'))
 
   if(isFetching){
       graphData = <div>Fetching</div>;
   }else if(isSuccess){
-    console.log(data);
-    console.log(userData);
+    // console.log(data);
+    // console.log(userData);
     chartData(data)
       graphData =  <Doughnut {...chartData(userData)} />
       
