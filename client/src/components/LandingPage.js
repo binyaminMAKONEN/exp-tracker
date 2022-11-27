@@ -47,8 +47,6 @@ const LandingPage = () => {
           const currentUser = res.data.username
           myStorage.setItem('user', currentUser);
           navigate(`/exTracker/${currentUser}`)
-        //   setShowLogin(false)
-        //   window.location.reload(false)
       } catch (err) {
           setError(true);
           throw err

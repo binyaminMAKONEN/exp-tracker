@@ -26,7 +26,7 @@ const List = () => {
     }
 
   return (
-    <div className="flex flex-col  gap-3 h-2/6 overflow-y-scroll sm:mt-3">
+    <div className="flex flex-col  gap-3 h-[40vh] overflow-y-scroll sm:mt-3">
     <h1 className='py-4 font-bold text-xl absolute bg-gray-50 w-[384px] '>History</h1>
     <div className='mt-12'>
     {Transactions}
