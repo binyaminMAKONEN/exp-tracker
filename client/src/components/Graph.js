@@ -16,8 +16,6 @@ const Graph = () => {
   if(isFetching){
       graphData = <div>Fetching</div>;
   }else if(isSuccess){
-    // console.log(data);
-    // console.log(userData);
     chartData(data)
       graphData =  <Doughnut {...chartData(userData)} />
       
