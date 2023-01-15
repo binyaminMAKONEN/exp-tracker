@@ -64,6 +64,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Conclusion
 This project is an open-source tool for tracking expenses that can be used by anyone. It's built with MERN stack and uses different technologies like RTK, RTK Query, Tailwind CSS, MongoDB Atlas, Lodash and Express Framework. You can check out the live demo of the application on https://exp-tracker-wine.vercel.app/ Feel free to use, modify and contribute to the project.
 
-<img src="blob:https://web.whatsapp.com/1042fc37-3f46-4e3d-8624-6237999b95d9" />
+<img src="![trackerMobile](https://user-images.githubusercontent.com/101037019/212540706-ffd8b770-1599-4c2d-b058-027292b8edc4.png)" />
 ![blob:https://web.whatsapp.com/1042fc37-3f46-4e3d-8624-6237999b95d9](tracker.png)
 ![C:\Users\Banja\Pictures\trackerMobile.png](trackerMobile.
