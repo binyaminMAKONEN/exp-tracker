@@ -28,7 +28,7 @@ The application is hosted on https://exp-tracker-wine.vercel.app/
 
 ## Setup
 1. Clone the repository
-git clone https://github.com/[username]/expense-tracker-app.git
+git clone https://github.com/binyaminMAKONEN/exp-tracker.git
 
 
 2. Install dependencies
@@ -45,7 +45,7 @@ npm start
 1. Register or login to the application
 2. Add new expenses by clicking the "Make Transaction" button and filling out the form.
 3. View all expenses on "History" .
-4. View spending statistics and charts by clicking the "Statistics" button.
+4. View spending percentage on charts 
 5. delete expenses by clicking on the trash icon button on the History's card
 
 ## Contribute
