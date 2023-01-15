@@ -1,15 +1,15 @@
 # Expense Tracker Application
 
 ## Overview
-This is a full-stack web application for tracking personal or business expenses. It allows users to input and categorize their expenses, view and analyze their spending over time and also manage their expenses.
+This is a full-stack web application for tracking personal expenses. It allows users to input and categorize their expenses, view and analyze their spending over time and also manage their expenses.
 
 ## Features
 - User authentication and registration
 - Add new expenses with a description, amount, and category
 - View a list of all expenses
-- Filter expenses by category or date range
-- View charts and statistics on spending
-- Edit or delete expenses
+- Filter expenses by user name 
+- View charts  on spending
+- delete expenses
 - Securely store user data
 
 ## Technical Details
@@ -43,11 +43,10 @@ npm start
 
 ## Usage
 1. Register or login to the application
-2. Add new expenses by clicking the "New Expense" button and filling out the form.
-3. View all expenses by clicking the "Expenses" button.
-4. Filter expenses by category or date range using the dropdown menus.
-5. View spending statistics and charts by clicking the "Statistics" button.
-6. Edit or delete expenses by clicking on the corresponding button on the expense's card
+2. Add new expenses by clicking the "Make Transaction" button and filling out the form.
+3. View all expenses on "History" .
+4. View spending statistics and charts by clicking the "Statistics" button.
+5. delete expenses by clicking on the trash icon button on the History's card
 
 ## Contribute
 If you want to contribute to the project, please follow the steps:
@@ -58,11 +57,12 @@ If you want to contribute to the project, please follow the steps:
 4. Push to the branch (git push origin my-feature)
 5. Create a new pull request
 
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 
 ## Conclusion
 This project is an open-source tool for tracking expenses that can be used by anyone. It's built with MERN stack and uses different technologies like RTK, RTK Query, Tailwind CSS, MongoDB Atlas, Lodash and Express Framework. You can check out the live demo of the application on https://exp-tracker-wine.vercel.app/ Feel free to use, modify and contribute to the project.
+
+
 
 
 ![Expense Tracker Preview](https://user-images.githubusercontent.com/101037019/212541054-63b786de-fae7-446c-b465-92ac777b67d5.png)
